@@ -6,15 +6,14 @@ class BoundingArea
   end
 
   def contains_point?(x,y)
-    containment = false
-
+    contained = false
 
     @rectangles.each do | rectangle |
-      if x >= rectangle.left && x <= rectangle.right && y >= rectangle.bottom && y <= rectangle.top
-        containment = true
+      if rectangle.contains_point?(x, y)
+        contained = true
       end
     end
 
-    containment
+    contained
   end
 end
